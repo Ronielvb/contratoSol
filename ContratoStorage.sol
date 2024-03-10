@@ -21,12 +21,11 @@ contract ContratoStorage {
     return contrato;
   }
 
-  function get() public view returns (string  memory retVal) {
+  function get() public pure  returns (string memory contrato) {
       return contrato;
    }
 
-   function query() public view returns (string memory retVal) {
+   function query() public pure  returns (string memory contrato) {
       return contrato;
    }
-  
 }

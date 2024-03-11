@@ -1,23 +1,19 @@
 pragma solidity ^0.8.1;
 
 contract ContratoStorage {
-    string[] contratos;
+    
+    struct Contrato{
+        string nucontrato;
+        string dado;
+    }
 
-    function pushToContrato(string memory _data) public{
-        contratos.push(_data);
+    mapping(string => Contrato) public contratos;
+
+    function pushToContrato(string  memory nucontrato, string memory _data) public{
+        contratos[nucontrato]= Contrato(nucontrato,_data);
     }
     
-    function GetAllContratos() view public returns(string[] memory){
-        return contratos;
-    }
-
-    function GetContratos(uint x) view public returns(string memory){
-        return contratos[x];
-    }
-
-    function pushSContratosArray(string[] memory contratoData) public{
-        for (uint i=0; i < contratoData.length; i++) {
-           contratos.push(contratoData[i]);
-        }
+    function GetContratos(string memory nucontrato) public view returns (string memory _dado){
+        return(contratos[nucontrato].dado);
     }
 }
